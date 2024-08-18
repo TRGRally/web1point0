@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Doctor Who is EPIC</title>
+    <title>Tennant Clicker</title>
     <style type="text/css">
         body {
             font-family: Arial, sans-serif;
@@ -15,11 +15,17 @@
             font-smoothing: none; 
             text-rendering: optimizeLegibility; 
             image-rendering: pixelated; 
-            background-image: url('background.gif');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
 
+            background-image: url('grunge.png'), url('anigdstar.gif'), url('gallifrey-background.png');
+            
+            background-position: bottom center, top left, top center;
+            
+            background-size: 500px, 10px, 800px;
+            
+            background-repeat: repeat-x, repeat, repeat;
+
+            background-blend-mode: multiply;
+            background-color: white;
             color: #dc3931;
         }
 
@@ -35,10 +41,6 @@
             cursor: pointer;
             font-size: 20px;
         }
-        #enter:hover {
-            border: solid 1px white;
-        }
-
         table {
             width: 900px;
             height: 100%;
@@ -57,9 +59,9 @@
             text-align: center;
         }
         #nav {
-            width: 200px;
+            background-color: rgba(0,0,0,1);
             border: solid 1px #aa2212;
-            background-color: black;
+            width: 200px;
             vertical-align: top;
         }
         #nav > ul > li > a{
@@ -79,9 +81,11 @@
             text-align: center;
             height: 50px;
         }
+
         a {
             color: #dc3931;
         }
+
 
         ul {
             list-style-image: url('bullet.png');
@@ -91,32 +95,36 @@
             list-style-image: url('bullet-active.png');
         }
 
+        #clicker {
+            width: 80%;
+            height: 340px;
+            margin-left: auto;
+            margin-right: auto;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
 <body>
-
-    <div>
-        <button id="enter" onclick="enterSite()">Click to enter.</button>
-    </div>
-    
-    <table style="display: none;">
+    <table>
         <tr>
             <td id="header" colspan="2"><img src="logo.gif" alt="Doctor Who is EPIC logo"></td>
         </tr>
         <tr>
             <td id="nav">
                 <ul>
-                    <li class="active-page"><a href="/">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/reviews.html">Episode reviews</a></li>
-                    <li><a href="/tennant-clicker.html">Tennant clicker</a></li>
-                    <li><a href="/contact.html">Mail in</a></li>
+                    <li class="active-page"><a href="/tennant-clicker.html">Tennant clicker</a></li>
+                    <li><a href="mailto:jamie@freaky.team?subject=doctorwhoisepic.com - Mail in" target="_blank">Mail in</a></li>
                 </ul>
             </td>
             <td id="content">
-                <div style="width: 100%; position: relative;"><h2>Welcome</h2> <img style="position: absolute; float: right; top: 0; right: 0;" src="cool.png"></img></div>
-                <p>Doctor who is the best show ever made ever</p>
-                <p>Sometimes its too scary so my mum and dad watch it before me just to make sure</p>
-
+                <h3>Tennant Clicker</h3>
+                <p>Click the tennant to increase your score! A secret awaits those most determined...</p>
+                <div id="clicker" style="background-image: url('tennant/tennant0.jpg');"></div>
+                <p style="font-weight: bold;">Total: <span id="total">0</span></p>
             </td>
         </tr>
         <tr>
@@ -136,10 +144,12 @@
         }
 
         function startBackgroundMusic() {
-            var audio = new Audio('background.mp3');
+            var audio = new Audio('songforten.mp3');
             audio.loop = true;
             audio.play();
         }
+
+        startBackgroundMusic();
 
         function setFavicon(url) {
             let favicon = document.querySelector("link[rel*='icon']");
@@ -174,6 +184,30 @@
 
         animateFavicon(18);
 
+
+        let total = 0;
+        let imageIndex = 1;
+        const imageCount = 10;
+
+        function incrementImageIndex() {
+            imageIndex = (imageIndex + 1) % imageCount;
+        }
+        
+        document.getElementById('clicker').addEventListener('click', () => {
+            total++;
+            incrementImageIndex();
+            document.getElementById('total').innerText = total;
+
+            const filepath = `tennant/tennant${imageIndex}.jpg`;
+            document.querySelector('#clicker').style.backgroundImage = `url(${filepath})`;
+
+            if (total === 69) {
+                //activating the secret device
+                for (let i = 0; i < 10; i++) {
+                    window.open('https://trgrally.dev/', '_blank');
+                }
+            }
+        });
 
     </script>
 </body>

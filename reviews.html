@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Table-Based Layout Example</title>
+    <title>Episode Reviews</title>
     <style type="text/css">
         body {
             font-family: Arial, sans-serif;
@@ -15,10 +15,18 @@
             font-smoothing: none; 
             text-rendering: optimizeLegibility; 
             image-rendering: pixelated; 
-            background-image: url('background.gif');
-            background-size: cover;
 
-            color: #aa2212;
+            background-image: url('grunge.png'), url('grunge-tile.jpg'), url('tardis-pattern-2.png');
+            
+            background-position: bottom center, top left, top center;
+            
+            background-size: 500px, 1500px, 80px;
+            
+            background-repeat: repeat-x, repeat, repeat;
+
+            background-blend-mode: multiply;
+            background-color: white;
+            color: #dc3931;
         }
 
         #enter {
@@ -34,7 +42,7 @@
             font-size: 20px;
         }
         table {
-            width: 90%;
+            width: 900px;
             height: 100%;
             border-collapse: collapse;
             margin-left: auto;
@@ -51,18 +59,43 @@
             text-align: center;
         }
         #nav {
+            background-color: rgba(0,0,0,1);
+            border: solid 1px #aa2212;
             width: 200px;
             vertical-align: top;
         }
+        #nav > ul > li > a{
+            position: relative;
+            top: -11px;
+            vertical-align: middle;
+        }
         #content {
             background-color: #000;
+            border: solid 1px #aa2212;
             vertical-align: top;
             min-height: 400px;
         }
         #footer {
             background-color: #000;
+            border: solid 1px #aa2212;
             text-align: center;
             height: 50px;
+        }
+
+        a {
+            color: #dc3931;
+        }
+
+        ul {
+            list-style-image: url('bullet.png');
+        }
+
+        .active-page {
+            list-style-image: url('bullet-active.png');
+        }
+
+        h3, h4 {
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -75,33 +108,92 @@
             <td id="nav">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/reviews.html">Episode reviews</a></li>
-                    <li><a href="/ranking.html">Doctor ranking</a></li>
-                    <li><a href="/contact.html">Mail in</a></li>
+                    <li class="active-page"><a href="/reviews.html">Episode reviews</a></li>
+                    <li><a href="/tennant-clicker.html">Tennant clicker</a></li>
+                    <li><a href="mailto:jamie@freaky.team?subject=doctorwhoisepic.com - Mail in" target="_blank">Mail in</a></li>
                 </ul>
             </td>
             <td id="content">
                 <h2>Episode reviews</h2>
+                <p>Here i have put my review of the doctor who episodes as smileys</p>
+                <p>You can click on the links to watch each one on iplayer!! (bbc is awesomesauce)</p>
                 <h3>Season 1</h3>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074dlv/doctor-who-20052022-series-1-1-rose">Rose</a></p>
-                <p><a href="">The End of the World</a></p>
-                <p><a href="">The Unquiet Dead</a></p>
-                <p><a href="">Aliens of London</a></p>
-                <p><a href="">World War Three</a></p>
-                <p><a href="">Dalek</a></p>
-                <p><a href="">The Long Game</a></p>
-                <p><a href="">Father's Day</a></p>
-                <p><a href="">The Empty Child</a></p>
-                <p><a href="">The Doctor Dances</a></p>
-                <p><a href="">Boom Town</a></p>
-                <p><a href="">Bad Wolf</a></p>
-                <p><a href="">The Parting of the Ways</a></p>
-
+                <p><img src="http://www.mysmiley.net/imgs/smile/cool/cool0044.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dlv/doctor-who-20052022-series-1-1-rose">Rose</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0052.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dmp/doctor-who-20052022-series-1-2-the-end-of-the-world">The End of the World</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/confused/confused0027.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dng/doctor-who-20052022-series-1-3-the-unquiet-dead?seriesId=b007vvcq">The Unquiet Dead</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/evilgrin/evilgrin0010.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dp9/doctor-who-20052022-series-1-4-aliens-of-london?seriesId=b007vvcq">Aliens of London</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/ashamed/ashamed0003.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dpv/doctor-who-20052022-series-1-5-world-war-three?seriesId=b007vvcq">World War Three</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0065.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dq8/doctor-who-20052022-series-1-6-dalek?seriesId=b007vvcq">Dalek</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/confused/confused0076.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dr5/doctor-who-20052022-series-1-7-the-long-game?seriesId=b007vvcq">The Long Game</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0159.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074drw/doctor-who-20052022-series-1-8-fathers-day?seriesId=b007vvcq">Father's Day</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/love/love0030.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074ds9/doctor-who-20052022-series-1-9-the-empty-child?seriesId=b007vvcq">The Empty Child</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0147.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dsp/doctor-who-20052022-series-1-10-the-doctor-dances?seriesId=b007vvcq">The Doctor Dances</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/rolleye/rolleye0003.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dt5/doctor-who-20052022-series-1-11-boom-town?seriesId=b007vvcq">Boom Town</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/confused/confused0068.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dth/doctor-who-20052022-series-1-12-bad-wolf?seriesId=b007vvcq">Bad Wolf</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/sad/sad0125.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dv1/doctor-who-20052022-series-1-13-the-parting-of-the-ways?seriesId=b007vvcq">The Parting of the Ways</a></p>
+                <h4>Christmas Special</h4>
+                <p><img src="http://www.mysmiley.net/imgs/smile/love/love0076.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074f9p/doctor-who-20052022-the-christmas-invasion?seriesId=b007vvcq">The Christmas Invasion</a></p>
+                <h3>Season 2</h3>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fll/doctor-who-20052022-series-2-1-new-earth?seriesId=b006v18m">New Earth</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fly/doctor-who-20052022-series-2-2-tooth-and-claw?seriesId=b006v18m">Tooth and Claw</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fm7/doctor-who-20052022-series-2-3-school-reunion?seriesId=b006v18m">School Reunion</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fmn/doctor-who-20052022-series-2-4-the-girl-in-the-fireplace?seriesId=b006v18m">The Girl in the Fireplace</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fn1/doctor-who-20052022-series-2-5-rise-of-the-cybermen?seriesId=b006v18m">Rise of the Cybermen</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fnh/doctor-who-20052022-series-2-6-the-age-of-steel?seriesId=b006v18m">The Age of Steel</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fnv/doctor-who-20052022-series-2-7-the-idiots-lantern?seriesId=b006v18m">The Idiot's Lantern</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074gfz/doctor-who-20052022-series-2-8-the-impossible-planet?seriesId=b006v18m">The Impossible Planet</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fpm/doctor-who-20052022-series-2-9-the-satan-pit?seriesId=b006v18m">The Satan Pit</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/sad/sad0071.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074fpz/doctor-who-20052022-series-2-10-love-and-monsters?seriesId=b006v18m">Love and Monsters</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/confused/confused0082.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074fmc/doctor-who-20052022-series-2-11-fear-her">Fear Her</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fqz/doctor-who-20052022-series-2-12-army-of-ghosts?seriesId=b006v18m">Army of Ghosts</a></p>
+                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074frg/doctor-who-20052022-series-2-13-doomsday?seriesId=b006v18m">Doomsday</a></p>
+                <h4>Christmas Special</h4>
+                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0071.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074g6q/doctor-who-20052022-the-runaway-bride?seriesId=b006v18m">The Runaway Bride</a></p>
+                <h3>Season 3</h3>
+                <p><a href="">Smith and Jones</a></p>
+                <p><img src="http://www.mysmiley.net/imgs/smile/indifferent/indifferent0020.gif" alt=""><a href="">The Shakespeare Code</a></p>
+                <p><a href="">Gridlock</a></p>
+                <p><a href="">Daleks in Manhattan</a></p>
+                <p><a href="">Evolution of the Daleks</a></p>
+                <p><a href="">The Lazarus Experiment</a></p>
+                <p><a href="">42</a></p>
+                <p><a href="">Human Nature</a></p>
+                <p><a href="">The Family of Blood</a></p>
+                <p><a href="">Blink</a></p>
+                <p><a href="">Utopia</a></p>
+                <p><a href="">The Sound of Drums</a></p>
+                <p><a href="">Last of the Time Lords</a></p>
+                <h4>Christmas Special</h4>
+                <p><a href="">Voyage of the Damned</a></p>
+                <h3>Season 4</h3>
+                <p><a href="">Partners in Crime</a></p>
+                <p><a href="">The Fires of Pompeii</a></p>
+                <p><a href="">Planet of the Ood</a></p>
+                <p><a href="">The Sontaran Stratagem</a></p>
+                <p><a href="">The Poison Sky</a></p>
+                <p><a href="">The Doctor's Daughter</a></p>
+                <p><a href="">The Unicorn and the Wasp</a></p>
+                <p><a href="">Silence in the Library</a></p>
+                <p><a href="">Forest of the Dead</a></p>
+                <p><a href="">Midnight</a></p>
+                <p><a href="">Turn Left</a></p>
+                <p><a href="">The Stolen Earth</a></p>
+                <p><a href="">Journey's End</a></p>
+                <h4>Specials</h4>
+                <p><a href="">The Next Doctor</a></p>
+                <p><a href="">Planet of the Dead</a></p>
+                <p><a href="">The Waters of Mars</a></p>
+                <p><a href="">The End of Time - Part 1</a></p>
+                <p><a href="">The End of Time - Part 2</a></p>
 
             </td>
         </tr>
         <tr>
-            <td id="footer" colspan="2">&copy; 2006 Rally life</td>
+            <td id="footer" colspan="2">
+                <p>&copy; 2009 Rally life</p> <img src="battyville2.png"></img>
+                <img src="epic-button.png"></img>
+                <img src="https://cyber.dabamos.de/88x31/chrome.gif"></img>
+            </td>
         </tr>
     </table>
     <script>
@@ -113,10 +205,45 @@
         }
 
         function startBackgroundMusic() {
-            var audio = new Audio('background.mp3');
+            var audio = new Audio('doomsday.mp3');
             audio.loop = true;
             audio.play();
         }
+
+        startBackgroundMusic();
+
+        function setFavicon(url) {
+            let favicon = document.querySelector("link[rel*='icon']");
+
+            if (!favicon) {
+                favicon = document.createElement('link');
+                favicon.rel = 'icon';
+                document.head.appendChild(favicon);
+            }
+
+            favicon.href = url;
+        }   
+
+        function animateFavicon(frameCount) {
+            const frames = [];
+            let frameIndex = 0;
+
+            for (let i = 0; i < frameCount; i++) {
+                frames.push(`/favicon-frames/frame_${i}.png`);
+            }
+
+            frames.forEach((frame) => {
+                const img = new Image();
+                img.src = frame;
+            });
+
+            setInterval(() => {
+                setFavicon(frames[frameIndex]);
+                frameIndex = (frameIndex + 1) % frames.length;
+            }, 100);
+        }
+
+        animateFavicon(18);
 
     </script>
 </body>
