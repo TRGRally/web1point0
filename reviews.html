@@ -245,6 +245,57 @@
 
         animateFavicon(18);
 
+        let x = 0;
+        let y = 0;
+        let xSpeed = 2;
+        let ySpeed = 2;
+        let logo;
+
+        function spawnLogo() {
+            logo = document.createElement('img');
+            logo.src = 'dw-logo.png';
+            logo.id = 'bouncing-logo';
+            logo.style.position = 'absolute';
+        
+            const bodyBounds = document.body.getBoundingClientRect();
+            const x = Math.random() * (bodyBounds.width - logo.width);
+            const y = Math.random() * (bodyBounds.height - logo.height);
+        
+            document.body.prepend(logo);
+        }
+        
+        let lastTime = 0;
+        function updatePosition() {
+            currentTime = Date.now();
+            if (!lastTime) {
+                lastTime = currentTime;
+            }
+            const deltaTime = (currentTime - lastTime) / 10;
+        
+            const bodyBounds = document.body.getBoundingClientRect();
+            const logoBounds = logo.getBoundingClientRect();
+        
+            if (y + logoBounds.height >= bodyBounds.height || y <= 0) {
+                ySpeed *= -1;
+            }
+        
+            if (x + logoBounds.width >= bodyBounds.width || x <= 0) {
+                xSpeed *= -1;
+            }
+        
+            x += xSpeed * deltaTime;
+            y += ySpeed * deltaTime;
+        
+            logo.style.transform = `translate(${x}px, ${y}px)`;
+        
+            lastTime = currentTime;
+            requestAnimationFrame(updatePosition);
+        }
+
+        spawnLogo();
+        updatePosition();
+
+
     </script>
 </body>
 
