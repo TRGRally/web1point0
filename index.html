@@ -15,12 +15,23 @@
             font-smoothing: none; 
             text-rendering: optimizeLegibility; 
             image-rendering: pixelated; 
-            background-image: url('background.gif');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
 
-            color: #dc3931;
+            color: #ff0000;
+            letter-spacing: 0.2px;
+        }
+
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
         }
 
         #enter {
@@ -31,15 +42,17 @@
             background-color: #000;
             color: #fff;
             padding: 10px 20px;
-            border: none;
+            border: solid 1px white;
             cursor: pointer;
             font-size: 20px;
         }
         #enter:hover {
-            border: solid 1px white;
+            border: solid 1px #aa2212;
+            color: #ff0000;
         }
 
         table {
+            position: relative;
             width: 900px;
             height: 100%;
             border-collapse: collapse;
@@ -62,7 +75,8 @@
             background-color: black;
             vertical-align: top;
         }
-        #nav > ul > li > a{
+        #nav > ul > li > a,
+        #nav > ul > li > span {
             position: relative;
             top: -11px;
             vertical-align: middle;
@@ -78,9 +92,10 @@
             border: solid 1px #aa2212;
             text-align: center;
             height: 50px;
+            font-size: 14px;
         }
         a {
-            color: #dc3931;
+            color: #ff0000;
         }
 
         ul {
@@ -89,6 +104,33 @@
 
         .active-page {
             list-style-image: url('bullet-active.png');
+        }
+
+        .active-page > a {
+            text-decoration: none;
+            color: #e6a800;
+        }
+
+        #nav > ul > li > span {
+            color: black;
+        }
+
+        #nav > ul > .active-page > span {
+            color: #e6a800;
+        }
+
+        #nav > ul > li:hover > span {
+            color: #e6a800;
+        }
+
+        #song-name {
+            font-size: 12px;
+            color: #aa2212;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 4px;
+            font-weight: bold;
         }
 
     </style>
@@ -106,13 +148,14 @@
         <tr>
             <td id="nav">
                 <ul>
-                    <li class="active-page"><a href="/">Home</a></li>
-                    <li><a href="/reviews.html">Episode reviews</a></li>
-                    <li><a href="/tennant-clicker.html">Tennant clicker</a></li>
-                    <li><a href="/contact.html">Mail in</a></li>
+                    <li class="active-page"><span>[ </span><a href="/">Home</a><span> ]</span></li>
+                    <li><span>[ </span><a href="/reviews.html">Episode reviews</a><span> ]</span></li>
+                    <li><span>[ </span><a href="/tennant-clicker.html">Tennant clicker</a><span> ]</span></li>
+                    <li><span>[ </span><a href="mailto:jamie@freaky.team?subject=doctorwhoisepic.com - Mail in" target="_blank">Mail in</a><span> ]</span></li>
                 </ul>
             </td>
             <td id="content">
+                <p id="song-name">♫ Doctor Who Opening Credits (2008) - Ron Grainer</p>
                 <div style="width: 100%; position: relative;"><h2>Welcome</h2> <img style="position: absolute; float: right; top: 0; right: 0;" src="cool.png"></img></div>
                 <p>Doctor who is the best show ever made ever</p>
                 <p>Sometimes its too scary so my mum and dad watch it before me just to make sure</p>
@@ -133,6 +176,11 @@
             startBackgroundMusic();
             document.querySelector('table').style.display = 'table';
             document.querySelector('button').style.display = 'none';
+
+            document.body.style.backgroundImage = "url('background.gif')";
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundRepeat = "no-repeat";
+            document.body.style.backgroundPosition = "center center";
         }
 
         function startBackgroundMusic() {

@@ -20,13 +20,30 @@
             
             background-position: bottom center, top left, top center;
             
-            background-size: 500px, 1500px, 80px;
+            background-size: cover, 1500px, 80px;
             
-            background-repeat: repeat-x, repeat, repeat;
+            background-repeat: no-repeat, repeat, repeat;
 
             background-blend-mode: multiply;
             background-color: white;
-            color: #dc3931;
+            color: #ff0000;
+            letter-spacing: 0.2px;
+            overflow-x: clip;
+        }
+
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            left: 0;
+            background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0, 0, 0, 0.3) 50%);
+            
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 99999;
         }
 
         #enter {
@@ -42,11 +59,13 @@
             font-size: 20px;
         }
         table {
+            position: relative;
             width: 900px;
             height: 100%;
             border-collapse: collapse;
             margin-left: auto;
             margin-right: auto;
+            z-index: 2;
         }
         td {
             border: 1px solid #000;
@@ -64,7 +83,8 @@
             width: 200px;
             vertical-align: top;
         }
-        #nav > ul > li > a{
+        #nav > ul > li > a,
+        #nav > ul > li > span {
             position: relative;
             top: -11px;
             vertical-align: middle;
@@ -80,10 +100,11 @@
             border: solid 1px #aa2212;
             text-align: center;
             height: 50px;
+            font-size: 14px;
         }
 
         a {
-            color: #dc3931;
+            color: #ff0000;
         }
 
         ul {
@@ -94,9 +115,55 @@
             list-style-image: url('bullet-active.png');
         }
 
+        .active-page > a {
+            text-decoration: none;
+            color: #e6a800;
+        }
+
+        #nav > ul > li > span {
+            color: black;
+        }
+
+        #nav > ul > .active-page > span {
+            color: #e6a800;
+        }
+
+        #nav > ul > li:hover > span {
+            color: #e6a800;
+        }
+
         h3, h4 {
             margin-top: 40px;
         }
+
+        img {
+            min-width: 32px;
+            min-height: 32px;
+        }
+
+        img.oversized {
+            min-height: 0;
+            max-width: 150px;
+        }
+
+        #reviews {
+            width: 450px;
+        }
+
+        #bouncing-logo {
+            z-index: 1;
+        }
+
+        #song-name {
+            font-size: 12px;
+            color: #aa2212;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 4px;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
@@ -107,84 +174,271 @@
         <tr>
             <td id="nav">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li class="active-page"><a href="/reviews.html">Episode reviews</a></li>
-                    <li><a href="/tennant-clicker.html">Tennant clicker</a></li>
-                    <li><a href="mailto:jamie@freaky.team?subject=doctorwhoisepic.com - Mail in" target="_blank">Mail in</a></li>
+                    <li><span>[ </span><a href="/">Home</a><span> ]</span></li>
+                    <li class="active-page"><span>[ </span><a href="/reviews.html">Episode reviews</a><span> ]</span></li>
+                    <li><span>[ </span><a href="/tennant-clicker.html">Tennant clicker</a><span> ]</span></li>
+                    <li><span>[ </span><a href="mailto:jamie@freaky.team?subject=doctorwhoisepic.com - Mail in" target="_blank">Mail in</a><span> ]</span></li>
                 </ul>
             </td>
             <td id="content">
+                <p id="song-name">♫ Doomsday - Murray Gold</p>
                 <h2>Episode reviews</h2>
                 <p>Here i have put my review of the doctor who episodes as smileys</p>
                 <p>You can click on the links to watch each one on iplayer!! (bbc is awesomesauce)</p>
-                <h3>Season 1</h3>
-                <p><img src="http://www.mysmiley.net/imgs/smile/cool/cool0044.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dlv/doctor-who-20052022-series-1-1-rose">Rose</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0052.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dmp/doctor-who-20052022-series-1-2-the-end-of-the-world">The End of the World</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/confused/confused0027.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dng/doctor-who-20052022-series-1-3-the-unquiet-dead?seriesId=b007vvcq">The Unquiet Dead</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/evilgrin/evilgrin0010.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dp9/doctor-who-20052022-series-1-4-aliens-of-london?seriesId=b007vvcq">Aliens of London</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/ashamed/ashamed0003.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dpv/doctor-who-20052022-series-1-5-world-war-three?seriesId=b007vvcq">World War Three</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0065.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dq8/doctor-who-20052022-series-1-6-dalek?seriesId=b007vvcq">Dalek</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/confused/confused0076.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dr5/doctor-who-20052022-series-1-7-the-long-game?seriesId=b007vvcq">The Long Game</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0159.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074drw/doctor-who-20052022-series-1-8-fathers-day?seriesId=b007vvcq">Father's Day</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/love/love0030.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074ds9/doctor-who-20052022-series-1-9-the-empty-child?seriesId=b007vvcq">The Empty Child</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0147.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dsp/doctor-who-20052022-series-1-10-the-doctor-dances?seriesId=b007vvcq">The Doctor Dances</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/rolleye/rolleye0003.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dt5/doctor-who-20052022-series-1-11-boom-town?seriesId=b007vvcq">Boom Town</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/confused/confused0068.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dth/doctor-who-20052022-series-1-12-bad-wolf?seriesId=b007vvcq">Bad Wolf</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/sad/sad0125.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074dv1/doctor-who-20052022-series-1-13-the-parting-of-the-ways?seriesId=b007vvcq">The Parting of the Ways</a></p>
-                <h4>Christmas Special</h4>
-                <p><img src="http://www.mysmiley.net/imgs/smile/love/love0076.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074f9p/doctor-who-20052022-the-christmas-invasion?seriesId=b007vvcq">The Christmas Invasion</a></p>
-                <h3>Season 2</h3>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fll/doctor-who-20052022-series-2-1-new-earth?seriesId=b006v18m">New Earth</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fly/doctor-who-20052022-series-2-2-tooth-and-claw?seriesId=b006v18m">Tooth and Claw</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fm7/doctor-who-20052022-series-2-3-school-reunion?seriesId=b006v18m">School Reunion</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fmn/doctor-who-20052022-series-2-4-the-girl-in-the-fireplace?seriesId=b006v18m">The Girl in the Fireplace</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fn1/doctor-who-20052022-series-2-5-rise-of-the-cybermen?seriesId=b006v18m">Rise of the Cybermen</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fnh/doctor-who-20052022-series-2-6-the-age-of-steel?seriesId=b006v18m">The Age of Steel</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fnv/doctor-who-20052022-series-2-7-the-idiots-lantern?seriesId=b006v18m">The Idiot's Lantern</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074gfz/doctor-who-20052022-series-2-8-the-impossible-planet?seriesId=b006v18m">The Impossible Planet</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fpm/doctor-who-20052022-series-2-9-the-satan-pit?seriesId=b006v18m">The Satan Pit</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/sad/sad0071.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074fpz/doctor-who-20052022-series-2-10-love-and-monsters?seriesId=b006v18m">Love and Monsters</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/confused/confused0082.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074fmc/doctor-who-20052022-series-2-11-fear-her">Fear Her</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074fqz/doctor-who-20052022-series-2-12-army-of-ghosts?seriesId=b006v18m">Army of Ghosts</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074frg/doctor-who-20052022-series-2-13-doomsday?seriesId=b006v18m">Doomsday</a></p>
-                <h4>Christmas Special</h4>
-                <p><img src="http://www.mysmiley.net/imgs/smile/happy/happy0071.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074g6q/doctor-who-20052022-the-runaway-bride?seriesId=b006v18m">The Runaway Bride</a></p>
-                <h3>Season 3</h3>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074gly/doctor-who-20052022-series-3-1-smith-and-jones">Smith and Jones</a></p>
-                <p><img src="http://www.mysmiley.net/imgs/smile/indifferent/indifferent0020.gif" alt=""><a href="https://www.bbc.co.uk/iplayer/episode/b0074gmy/doctor-who-20052022-series-3-2-the-shakespeare-code?seriesId=b006v193">The Shakespeare Code</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074gnr/doctor-who-20052022-series-3-3-gridlock?seriesId=b006v193">Gridlock</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0079mgg/doctor-who-20052022-series-3-4-daleks-in-manhattan?seriesId=b006v193">Daleks in Manhattan</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0079t3d/doctor-who-20052022-series-3-5-evolution-of-the-daleks?seriesId=b006v193">Evolution of the Daleks</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b007ghhb/doctor-who-20052022-series-3-6-the-lazarus-experiment?seriesId=b006v193">The Lazarus Experiment</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b007hb9s/doctor-who-20052022-series-3-7-42?seriesId=b006v193">42</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b007m0r9/doctor-who-20052022-series-3-8-human-nature?seriesId=b006v193">Human Nature</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b007n0d6/doctor-who-20052022-series-3-9-the-family-of-blood?seriesId=b006v193">The Family of Blood</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b0074gpl/doctor-who-20052022-series-3-10-blink?seriesId=b006v193">Blink</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b007qltt/doctor-who-20052022-series-3-11-utopia?seriesId=b006v193">Utopia</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b007r65s/doctor-who-20052022-series-3-12-the-sound-of-drums?seriesId=b006v193">The Sound of Drums</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b007rsj5/doctor-who-20052022-series-3-13-last-of-the-time-lords?seriesId=b006v193">Last of the Time Lords</a></p>
-                <h4>Christmas Special</h4>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b008lyb2/doctor-who-20052022-voyage-of-the-damned?seriesId=b006v193">Voyage of the Damned</a></p>
-                <h3>Season 4</h3>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b009w049/doctor-who-20052022-series-4-1-partners-in-crime?seriesId=b009wxzy">Partners in Crime</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b009wzbf/doctor-who-20052022-series-4-2-the-fires-of-pompeii?seriesId=b009wxzy">The Fires of Pompeii</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00b07kw/doctor-who-20052022-series-4-3-planet-of-the-ood?seriesId=b009wxzy">Planet of the Ood</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00b3z7h/doctor-who-20052022-series-4-4-the-sontaran-stratagem?seriesId=b009wxzy">The Sontaran Stratagem</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00b563l/doctor-who-20052022-series-4-5-the-poison-sky?seriesId=b009wxzy">The Poison Sky</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00bbpsb/doctor-who-20052022-series-4-6-the-doctors-daughter?seriesId=b009wxzy">The Doctor's Daughter</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00bdjtc/doctor-who-20052022-series-4-7-the-unicorn-and-the-wasp?seriesId=b009wxzy">The Unicorn and the Wasp</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00byd29/doctor-who-20052022-series-4-8-silence-in-the-library?seriesId=b009wxzy">Silence in the Library</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00c191w/doctor-who-20052022-series-4-9-forest-of-the-dead?seriesId=b009wxzy">Forest of the Dead</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00c4xjk/doctor-who-20052022-series-4-10-midnight?seriesId=b009wxzy">Midnight</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00c7ytx/doctor-who-20052022-series-4-11-turn-left?seriesId=b009wxzy">Turn Left</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00cccvg/doctor-who-20052022-series-4-12-the-stolen-earth?seriesId=b009wxzy">The Stolen Earth</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00cgnjr/doctor-who-20052022-series-4-13-journeys-end?seriesId=b009wxzy">Journey's End</a></p>
-                <h4>Specials</h4>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00gd1mr/doctor-who-20052022-the-next-doctor?seriesId=b009wxzy">The Next Doctor</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00jz2t4/doctor-who-20052022-planet-of-the-dead?seriesId=b009wxzy">Planet of the Dead</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00p05x8/doctor-who-20052022-the-waters-of-mars?seriesId=b009wxzy">The Waters of Mars</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00pk651/doctor-who-20052022-the-end-of-time-part-one?seriesId=b009wxzy">The End of Time - Part 1</a></p>
-                <p><a href="https://www.bbc.co.uk/iplayer/episode/b00pk7ls/doctor-who-20052022-the-end-of-time-part-two?seriesId=b009wxzy">The End of Time - Part 2</a></p>
+                <table id="reviews">
+                    <tbody>
+                        <tr><th colspan="2"><h3>Season 1</h3></th></tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/cool/cool0044.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dlv/doctor-who-20052022-series-1-1-rose">Rose</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0052.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dmp/doctor-who-20052022-series-1-2-the-end-of-the-world">The End of the World</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/confused/confused0027.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dng/doctor-who-20052022-series-1-3-the-unquiet-dead?seriesId=b007vvcq">The Unquiet Dead</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/evilgrin/evilgrin0010.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dp9/doctor-who-20052022-series-1-4-aliens-of-london?seriesId=b007vvcq">Aliens of London</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/ashamed/ashamed0003.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dpv/doctor-who-20052022-series-1-5-world-war-three?seriesId=b007vvcq">World War Three</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0065.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dq8/doctor-who-20052022-series-1-6-dalek?seriesId=b007vvcq">Dalek</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/confused/confused0076.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dr5/doctor-who-20052022-series-1-7-the-long-game?seriesId=b007vvcq">The Long Game</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0159.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074drw/doctor-who-20052022-series-1-8-fathers-day?seriesId=b007vvcq">Father's Day</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/love/love0030.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074ds9/doctor-who-20052022-series-1-9-the-empty-child?seriesId=b007vvcq">The Empty Child</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0147.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dsp/doctor-who-20052022-series-1-10-the-doctor-dances?seriesId=b007vvcq">The Doctor Dances</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/rolleye/rolleye0003.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dt5/doctor-who-20052022-series-1-11-boom-town?seriesId=b007vvcq">Boom Town</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/confused/confused0068.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dth/doctor-who-20052022-series-1-12-bad-wolf?seriesId=b007vvcq">Bad Wolf</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/sad/sad0125.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074dv1/doctor-who-20052022-series-1-13-the-parting-of-the-ways?seriesId=b007vvcq">The Parting of the Ways</a></td>
+                        </tr>
+                        <tr><th colspan="2"><h3>Christmas Special</h3></th></tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/love/love0076.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074f9p/doctor-who-20052022-the-christmas-invasion?seriesId=b007vvcq">The Christmas Invasion</a></td>
+                        </tr>
+                        <tr><th colspan="2"><h3>Season 2</h3></th></tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/scared/scared0012.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fll/doctor-who-20052022-series-2-1-new-earth?seriesId=b006v18m">New Earth</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/indifferent/indifferent0018.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fly/doctor-who-20052022-series-2-2-tooth-and-claw?seriesId=b006v18m">Tooth and Claw</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0062.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fm7/doctor-who-20052022-series-2-3-school-reunion?seriesId=b006v18m">School Reunion</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/ashamed/ashamed0006.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fmn/doctor-who-20052022-series-2-4-the-girl-in-the-fireplace?seriesId=b006v18m">The Girl in the Fireplace</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/confused/confused0061.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fn1/doctor-who-20052022-series-2-5-rise-of-the-cybermen?seriesId=b006v18m">Rise of the Cybermen</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/cool/cool0046.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fnh/doctor-who-20052022-series-2-6-the-age-of-steel?seriesId=b006v18m">The Age of Steel</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/indifferent/indifferent0004.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fnv/doctor-who-20052022-series-2-7-the-idiots-lantern?seriesId=b006v18m">The Idiot's Lantern</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0045.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074gfz/doctor-who-20052022-series-2-8-the-impossible-planet?seriesId=b006v18m">The Impossible Planet</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0064.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fpm/doctor-who-20052022-series-2-9-the-satan-pit?seriesId=b006v18m">The Satan Pit</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/sad/sad0071.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fpz/doctor-who-20052022-series-2-10-love-and-monsters?seriesId=b006v18m">Love and Monsters</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/fighting/fighting0024.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fmc/doctor-who-20052022-series-2-11-fear-her">Fear Her</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/animated/anim_30.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074fqz/doctor-who-20052022-series-2-12-army-of-ghosts?seriesId=b006v18m">Army of Ghosts</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/angel/angelloose.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074frg/doctor-who-20052022-series-2-13-doomsday?seriesId=b006v18m">Doomsday</a></td>
+                        </tr>
+                        <tr><th colspan="2"><h3>Christmas Special</h3></th></tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0071.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074g6q/doctor-who-20052022-the-runaway-bride?seriesId=b006v18m">The Runaway Bride</a></td>
+                        </tr>
+                        <tr><th colspan="2"><h3>Season 3</h3></th></tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0017.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074gly/doctor-who-20052022-series-3-1-smith-and-jones">Smith and Jones</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/indifferent/indifferent0020.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074gmy/doctor-who-20052022-series-3-2-the-shakespeare-code?seriesId=b006v193">The Shakespeare Code</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0003.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074gnr/doctor-who-20052022-series-3-3-gridlock?seriesId=b006v193">Gridlock</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0075.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0079mgg/doctor-who-20052022-series-3-4-daleks-in-manhattan?seriesId=b006v193">Daleks in Manhattan</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/fighting/fighting0038.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0079t3d/doctor-who-20052022-series-3-5-evolution-of-the-daleks?seriesId=b006v193">Evolution of the Daleks</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/indifferent/indifferent0010.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b007ghhb/doctor-who-20052022-series-3-6-the-lazarus-experiment?seriesId=b006v193">The Lazarus Experiment</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/confused/confused0082.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b007hb9s/doctor-who-20052022-series-3-7-42?seriesId=b006v193">42</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://www.mysmiley.net/adult/t1527.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b007m0r9/doctor-who-20052022-series-3-8-human-nature?seriesId=b006v193">Human Nature</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/sad/sad0049.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b007n0d6/doctor-who-20052022-series-3-9-the-family-of-blood?seriesId=b006v193">The Family of Blood</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/scared/scared0016.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b0074gpl/doctor-who-20052022-series-3-10-blink?seriesId=b006v193">Blink</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/rolleye/rolleye0010.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b007qltt/doctor-who-20052022-series-3-11-utopia?seriesId=b006v193">Utopia</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/sign/sign0027.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b007r65s/doctor-who-20052022-series-3-12-the-sound-of-drums?seriesId=b006v193">The Sound of Drums</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/characters/character0130.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b007rsj5/doctor-who-20052022-series-3-13-last-of-the-time-lords?seriesId=b006v193">Last of the Time Lords</a></td>
+                        </tr>
+                        <tr><th colspan="2"><h3>Christmas Special</h3></th></tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0013.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b008lyb2/doctor-who-20052022-voyage-of-the-damned?seriesId=b006v193">Voyage of the Damned</a></td>
+                        </tr>
+                        <tr><th colspan="2"><h3>Season 4</h3></th></tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0007.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b009w049/doctor-who-20052022-series-4-1-partners-in-crime?seriesId=b009wxzy">Partners in Crime</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0100.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b009wzbf/doctor-who-20052022-series-4-2-the-fires-of-pompeii?seriesId=b009wxzy">The Fires of Pompeii</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/love/love0007.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00b07kw/doctor-who-20052022-series-4-3-planet-of-the-ood?seriesId=b009wxzy">Planet of the Ood</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0189.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00b3z7h/doctor-who-20052022-series-4-4-the-sontaran-stratagem?seriesId=b009wxzy">The Sontaran Stratagem</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/sick/sick0026.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00b563l/doctor-who-20052022-series-4-5-the-poison-sky?seriesId=b009wxzy">The Poison Sky</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/sign/sign0015.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00bbpsb/doctor-who-20052022-series-4-6-the-doctors-daughter?seriesId=b009wxzy">The Doctor's Daughter</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0085.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00bdjtc/doctor-who-20052022-series-4-7-the-unicorn-and-the-wasp?seriesId=b009wxzy">The Unicorn and the Wasp</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/happy/happy0065.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00byd29/doctor-who-20052022-series-4-8-silence-in-the-library?seriesId=b009wxzy">Silence in the Library</a></td>
+                        </tr>
+                        <tr>
+                            <td><img class="oversized" src="http://www.mysmiley.net/imgs/smile/party/party0038.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00c191w/doctor-who-20052022-series-4-9-forest-of-the-dead?seriesId=b009wxzy">Forest of the Dead</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/characters/character0071.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00c4xjk/doctor-who-20052022-series-4-10-midnight?seriesId=b009wxzy">Midnight</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/characters/character0051.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00c7ytx/doctor-who-20052022-series-4-11-turn-left?seriesId=b009wxzy">Turn Left</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/animated/anim_19.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00cccvg/doctor-who-20052022-series-4-12-the-stolen-earth?seriesId=b009wxzy">The Stolen Earth</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/love/love0029.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00cgnjr/doctor-who-20052022-series-4-13-journeys-end?seriesId=b009wxzy">Journey's End</a></td>
+                        </tr>
+                        <tr><th colspan="2"><h3>Specials</h3></th></tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/sign/sign0003.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00gd1mr/doctor-who-20052022-the-next-doctor?seriesId=b009wxzy">The Next Doctor</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/animated/anim_27.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00jz2t4/doctor-who-20052022-planet-of-the-dead?seriesId=b009wxzy">Planet of the Dead</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/characters/character0029.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00p05x8/doctor-who-20052022-the-waters-of-mars?seriesId=b009wxzy">The Waters of Mars</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/animated/anim_65.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00pk651/doctor-who-20052022-the-end-of-time-part-one?seriesId=b009wxzy">The End of Time - Part 1</a></td>
+                        </tr>
+                        <tr>
+                            <td><img src="http://www.mysmiley.net/imgs/smile/sick/sick0004.gif" alt=""></td>
+                            <td><a href="https://www.bbc.co.uk/iplayer/episode/b00pk7ls/doctor-who-20052022-the-end-of-time-part-two?seriesId=b009wxzy">The End of Time - Part 2</a></td>
+                        </tr>
+                    </tbody>                    
+                </table>
+                
+                <p>Smileys from <a href="https://www.mysmiley.net/">mysmiley.net</a></p>
 
             </td>
         </tr>
@@ -197,12 +451,6 @@
         </tr>
     </table>
     <script>
-
-        function enterSite() {
-            startBackgroundMusic();
-            document.querySelector('table').style.display = 'table';
-            document.querySelector('button').style.display = 'none';
-        }
 
         function startBackgroundMusic() {
             var audio = new Audio('doomsday.mp3');
@@ -294,7 +542,6 @@
 
         spawnLogo();
         updatePosition();
-
 
     </script>
 </body>
